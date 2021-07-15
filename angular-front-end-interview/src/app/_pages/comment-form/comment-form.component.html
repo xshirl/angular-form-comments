@@ -1,0 +1,126 @@
+<div class="formContainer">
+  <h1 class="heading">Your Contact Information</h1>
+  <form (ngSubmit)="onSubmit()" #form="ngForm">
+    <div class="grid-column">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          required
+          [(ngModel)]="model.name"
+          name="name"
+          #name="ngModel"
+          [ngClass]="{ invalid: submitted && !name.valid }"
+        />
+        <div
+          [hidden]="
+            submitted == false || (name.valid == true && submitted == true)
+          "
+          class="alert alert-danger"
+        >
+          This field is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          required
+          [(ngModel)]="model.email"
+          email="email"
+          name="email"
+          #email="ngModel"
+          [ngClass]="{ invalid: submitted && !name.valid }"
+        />
+
+        <div
+          [hidden]="validateEmail(model.email) || !submitted"
+          class="alert alert-danger"
+        >
+          Invalid email address.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input
+          type="text" mask='+1 (888) 888-8888'
+          class="form-control"
+          id="phone"
+          required
+          [(ngModel)]="model.phone"
+          name="phone"
+          #phone="ngModel"
+          [ngClass]="{ invalid: submitted && !name.valid }"
+        />
+        <div
+          [hidden]="
+            submitted == false || (name.valid == true && submitted == true)
+          "
+          class="alert alert-danger"
+        >
+          This field is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="zipcode">Zipcode</label>
+        <input
+          appNumbersOnly
+          type="text"
+          class="form-control"
+          id="zipcode"
+          required
+          [(ngModel)]="model.zipcode"
+          name="zipcode"
+          #zipcode="ngModel"
+          [ngClass]="{ invalid: submitted && !name.valid }"
+        />
+        <div
+          [hidden]="
+            submitted == false || (name.valid == true && submitted == true)
+          "
+          class="alert alert-danger"
+        >
+          This field is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="body">Body</label>
+      <textarea
+        type="text"
+        class="form-control"
+        id="body"
+        required
+        [(ngModel)]="model.body"
+        name="body"
+        #body="ngModel"
+        [ngClass]="{ invalid: submitted && !name.valid }"
+      ></textarea>
+
+      <div
+        [hidden]="
+          submitted == false || (name.valid == true && submitted == true)
+        "
+        class="alert alert-danger"
+      >
+        This field is required
+      </div>
+    </div>
+
+    <button
+      class="formButton"
+      [ngClass]="{ formButton: true }"
+      type="submit"
+      class="btn btn-success"
+    >
+      Confirm & Submit
+    </button>
+  </form>
+</div>

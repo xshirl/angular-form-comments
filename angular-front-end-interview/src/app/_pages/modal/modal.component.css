@@ -1,0 +1,23 @@
+.modalComment {
+  padding: 40px;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.mat-dialog-container {
+  background-color: skyblue !important;
+}
+
+.modalButton {
+  background-color: lightblue;
+  padding: 16px;
+  outline: none;
+  border: 1px solid skyblue;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.buttonContainer {
+  position: relative;
+  bottom: 0px;
+}
